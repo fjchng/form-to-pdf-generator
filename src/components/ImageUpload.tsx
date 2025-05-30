@@ -41,7 +41,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({
         const dataUrl = await readFileAsDataURL(file);
         setValidationError(null);
         onChange(dataUrl);
-      } catch (err) {
+      } catch {
         setValidationError('Failed to read image file');
         onChange(null);
       } finally {
