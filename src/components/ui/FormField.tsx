@@ -7,19 +7,17 @@ interface FormFieldProps extends InputProps {
   required?: boolean;
 }
 
-export const FormField: React.FC<FormFieldProps> = ({
-  label,
-  required,
-  id,
-  error,
-  ...props
-}) => {
-  return (
-    <div className="space-y-2 mb-4">
-      <Label htmlFor={id} required={required}>
-        {label}
-      </Label>
-      <Input id={id} error={error} {...props} />
-    </div>
-  );
-};
+export const FormField = React.forwardRef<HTMLInputElement, FormFieldProps>(
+  ({ label, required, id, error, ...props }, ref) => {
+    return (
+      <div className="space-y-2 mb-4">
+        <Label htmlFor={id} required={required}>
+          {label}
+        </Label>
+        <Input id={id} error={error} ref={ref} {...props} />
+      </div>
+    );
+  }
+);
+
+FormField.displayName = 'FormField';

@@ -67,6 +67,7 @@ export const FormContainer: React.FC = () => {
             id="fullName"
             required
             {...register('fullName', { required: 'Full name is required' })}
+            ref={register('fullName').ref}
             error={errors.fullName?.message}
           />
           
@@ -82,6 +83,7 @@ export const FormContainer: React.FC = () => {
                 message: 'Invalid email address'
               }
             })}
+            ref={register('email').ref}
             error={errors.email?.message}
           />
           
@@ -89,6 +91,7 @@ export const FormContainer: React.FC = () => {
             label="Phone Number"
             id="phone"
             {...register('phone')}
+            ref={register('phone').ref}
             error={errors.phone?.message}
           />
           
@@ -96,6 +99,7 @@ export const FormContainer: React.FC = () => {
             label="Company"
             id="company"
             {...register('company')}
+            ref={register('company').ref}
             error={errors.company?.message}
           />
         </div>
